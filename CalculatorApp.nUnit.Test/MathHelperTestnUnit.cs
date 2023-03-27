@@ -15,7 +15,7 @@ namespace CalculatorApp.nUnit.Test
         {
             int x = 10;
             int y= 20;
-            int expected = 30;
+            int expected = 40;
             int result = _mathFormulas.Add(x, y);
             Assert.AreEqual(expected, result);
 
