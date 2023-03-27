@@ -24,4 +24,4 @@ steps:
   
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: '**/CalculatorApp.nUnit.Test/coverage.cobertura.xml'
+    summaryFileLocation: '**/CalculatorApp.nUnit.Test/coverage.cobertura.xml/*'
