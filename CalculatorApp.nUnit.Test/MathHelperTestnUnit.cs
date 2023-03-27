@@ -20,5 +20,14 @@ namespace CalculatorApp.nUnit.Test
             Assert.AreEqual(expected, result);
 
         }
+        [Test]
+        public void DiffTest()
+        {
+            int x = 10;
+            int y = 20;
+            int expectedResult = 10;
+            var result = _mathFormulas.Diff(x, y);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
