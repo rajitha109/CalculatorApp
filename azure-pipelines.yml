@@ -21,7 +21,13 @@ steps:
     projects: '**/CalculatorApp.nUnit.Test/*.csproj'
     publishTestResults: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura '
-- task: PublishCodeCoverageResults@2
+- task: DotNetCoreCLI@2
   inputs:
+    command: custom
+    custom: tool
+    arguments: install --tool-path . dotnet-reportgenerator-globaltool
+  displayName: Install ReportGenerator tool
+- task: PublishCodeCoverageResults@2
+  inputs:    
     summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
     
