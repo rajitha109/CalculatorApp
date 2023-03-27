@@ -20,8 +20,10 @@ steps:
     command: 'test'
     projects: '**/CalculatorApp.nUnit.Test/*.csproj'
     publishTestResults: true
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura '
+    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" '
+
 - task: PublishCodeCoverageResults@2
-  inputs:
+  inputs:    
     summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
+    
     
