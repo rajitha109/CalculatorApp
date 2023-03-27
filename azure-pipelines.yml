@@ -17,15 +17,11 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-- task: DotNetCoreCLI@2
-  inputs:
     command: 'test'
     projects: '**/CalculatorApp.nUnit.Test/*.csproj'
     publishTestResults: true
     arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: '$(Agent.TempDirectory)/**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
+    summaryFileLocation: '/**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
     
