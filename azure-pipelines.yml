@@ -23,5 +23,5 @@ steps:
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura '
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
+    summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.json'
     
