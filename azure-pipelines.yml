@@ -17,11 +17,12 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'test'
     projects: '**/CalculatorApp.nUnit.Test/*.csproj'
     publishTestResults: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
   
-- task: PublishCodeCoverageResults@2
-  inputs:    
-    summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
