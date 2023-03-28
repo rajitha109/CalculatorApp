@@ -20,12 +20,12 @@ steps:
     command: 'test'
     projects: '**/CalculatorApp.nUnit.Test/*.csproj'
     publishTestResults: true
-    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
     
 
 
 - task: PublishCodeCoverageResults@2
   inputs:    
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    summaryFileLocation: '**CalculatorApp.nUnit.Test/*coverage.cobertura.xml'
     
     
